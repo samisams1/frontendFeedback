@@ -107,7 +107,7 @@ value={content}
 onChange={this.onChangeDescription}
 />
 </div>
-          <Button disabled={!this.state.value} variant="contained" onClick={this.saveTutorial}>Submit</Button>
+          <Button  variant="contained" onClick={this.saveTutorial}>Submit</Button>
           </div>
         )}
       </div>
