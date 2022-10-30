@@ -1,5 +1,4 @@
 import { Component, ChangeEvent } from "react";
-import { Link } from "react-router-dom";
 import feedbackService from "../services/feedback.service";
 import feedbackData from "../types/feedback.type";
 
@@ -12,7 +11,7 @@ type State = {
   searchTitle: string
 };
 
-export default class TutorialsList extends Component<Props, State>{
+export default class FeedbackList extends Component<Props, State>{
   constructor(props: Props) {
     super(props);
     this.onChangeSearchTitle = this.onChangeSearchTitle.bind(this);
@@ -104,28 +103,9 @@ export default class TutorialsList extends Component<Props, State>{
 
     return (
       <div className="list row">
-        <div className="col-md-8">
-          <div className="input-group mb-3">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Search by title"
-              value={searchTitle}
-              onChange={this.onChangeSearchTitle}
-            />
-            <div className="input-group-append">
-              <button
-                className="btn btn-outline-secondary"
-                type="button"
-                onClick={this.searchTitle}
-              >
-                Search
-              </button>
-            </div>
-          </div>
-        </div>
+        
         <div className="col-md-6">
-          <h4>Tutorials List</h4>
+          <h4>Feedback  List</h4>
 
           <ul className="list-group">
             {tutorials &&
@@ -143,49 +123,6 @@ export default class TutorialsList extends Component<Props, State>{
               ))}
           </ul>
 
-          <button
-            className="m-3 btn btn-sm btn-danger"
-            onClick={this.removeAllTutorials}
-          >
-            Remove All
-          </button>
-        </div>
-        <div className="col-md-6">
-          {currentTutorial ? (
-            <div>
-              <h4>Tutorial</h4>
-              <div>
-                <label>
-                  <strong>Title:</strong>
-                </label>{" "}
-                {currentTutorial.title}
-              </div>
-              <div>
-                <label>
-                  <strong>Description:</strong>
-                </label>{" "}
-                {currentTutorial.content}
-              </div>
-              <div>
-                <label>
-                  <strong>Status:</strong>
-                </label>{" "}
-                {currentTutorial.title ? "Published" : "Pending"}
-              </div>
-
-              <Link
-                to={"/tutorials/" + currentTutorial.title}
-                className="badge badge-warning"
-              >
-                Edit
-              </Link>
-            </div>
-          ) : (
-            <div>
-              <br />
-              <p>Please click on a Tutorial...</p>
-            </div>
-          )}
         </div>
       </div>
     );

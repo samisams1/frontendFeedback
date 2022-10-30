@@ -1,6 +1,7 @@
 import { Button, ButtonBase, TextField } from '@mui/material';
 import { useState, MouseEvent } from 'react';
 import { useNavigate } from "react-router-dom";
+import AddRemoveInputField from './admin/addquestion';
 
 export default function Home() {
   const [inputValue, setInputValue] = useState('');
@@ -32,6 +33,7 @@ export default function Home() {
         />
         <br/>
     <Button variant="contained" onClick={handleClick}>Submit</Button>
+    <AddRemoveInputField />
     </div>
   );
 }

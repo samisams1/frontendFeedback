@@ -6,6 +6,7 @@ import Home from "./pages/home";
 import FeedbackForm from "./pages/FeedbackForm";
 import { ThemeProvider } from "./ components/ThemeProvider";
 import { Container, CssBaseline, Typography } from "@mui/material";
+import ListFeedback from "./pages/admin/listFeedback";
   
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Routes>
       <Route path="/" element={<Home />}/>
         <Route path="/feedback" element={<FeedbackForm />}/>
+        <Route path="/viewFeedback" element={<ListFeedback />}/>
       </Routes>
        
       </Container>

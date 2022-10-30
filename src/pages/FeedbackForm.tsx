@@ -14,12 +14,11 @@ export default class AddTutorial extends Component<Props, State> {
     super(props);
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
-    this.saveTutorial = this.saveTutorial.bind(this);
-    this.newTutorial = this.newTutorial.bind(this);
-
+    this.saveFeedback = this.saveFeedback.bind(this);
     this.state = {
       title: "",
       content: "",
+      userId: "",
       submitted: false
     };
   }
@@ -39,10 +38,11 @@ export default class AddTutorial extends Component<Props, State> {
 
  
 
-  saveTutorial() {
+  saveFeedback() {
     const data: feedbackData = {
       title: this.state.title,
-      content: this.state.content
+      content: this.state.content,
+      userId: '1'
     };
    console.log(data);
    console.log("samisams")
@@ -52,10 +52,12 @@ export default class AddTutorial extends Component<Props, State> {
         this.setState({
           title: response.data.title,
           content: response.data.content,
+           userId: response.data.userId
         });
         console.log(data);
         console.log('kebede');
         console.log(response.data);
+        alert("Success")
       })
       .catch((e: Error) => {
         console.log(e);
@@ -72,7 +74,7 @@ export default class AddTutorial extends Component<Props, State> {
 
   render() {
     const { submitted, title, content } = this.state;
-
+    const isAnonymous = true;
     return (
       <div className="submit-form">
         {submitted ? (
@@ -90,10 +92,15 @@ export default class AddTutorial extends Component<Props, State> {
             required
             id="outlined-required"
             label="How are you feeling after the session today"
-            rows={4}
+            helperText="type"
+            multiline
+            rows={2}
             defaultValue="Hello World"
             value={title}
             onChange={this.onChangeTitle}
+            style={{
+              width:400
+             }}
             />
 </div>
 <div>
@@ -103,11 +110,22 @@ required
 id="outlined-required"
 label="any topics"
 defaultValue="Hello World"
+multiline
+rows={2}
 value={content}
 onChange={this.onChangeDescription}
+style={{
+ width:400
+}}
 />
 </div>
-          <Button  variant="contained" onClick={this.saveTutorial}>Submit</Button>
+          <Button
+          style={{
+            borderRadius: 5,
+            backgroundColor: "rgb(21, 166, 9)",
+            fontSize: "18px"
+        }}
+          disabled={!title || !content} variant="contained" onClick={this.saveFeedback}>Submit</Button>
           </div>
         )}
       </div>
