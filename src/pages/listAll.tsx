@@ -1,3 +1,4 @@
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import { Component, ChangeEvent } from "react";
 import feedbackService from "../services/feedback.service";
 import feedbackData from "../types/feedback.type";
@@ -104,25 +105,32 @@ export default class FeedbackList extends Component<Props, State>{
     return (
       <div className="list row">
         
-        <div className="col-md-6">
+        <div className="col-md-8">
           <h4>Feedback  List</h4>
 
-          <ul className="list-group">
-            {tutorials &&
-              tutorials.map((tutorial: feedbackData, index: number) => (
-                <li
-                  className={
-                    "list-group-item " +
-                    (index === currentIndex ? "active" : "")
-                  }
-                  onClick={() => this.setActiveTutorial(tutorial, index)}
-                  key={index}
-                >
-                  {tutorial.title}
-                </li>
-              ))}
-          </ul>
-
+          <TableContainer component={Paper}>
+      <Table  aria-label="a dense table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Email</TableCell>
+            <TableCell align="right">Feedback </TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {tutorials.map((row) => (
+            <TableRow
+              key={row.title}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                {"forsamisams@gmail.com"}
+              </TableCell>
+              <TableCell align="right">{row.title + " " +row.content}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
         </div>
       </div>
     );

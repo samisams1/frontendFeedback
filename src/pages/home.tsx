@@ -1,8 +1,6 @@
-import { Button, ButtonBase, TextField } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 import { useState, MouseEvent } from 'react';
 import { useNavigate } from "react-router-dom";
-import AddRemoveInputField from './admin/addquestion';
-
 export default function Home() {
   const [inputValue, setInputValue] = useState('');
 
@@ -23,17 +21,26 @@ export default function Home() {
   return (
     <div className="App">
       <h1>What is Your email address ? </h1>
-      <TextField
-          required
-          id="outlined-required"
-          label="Type Your answer"
-          defaultValue="Hello World"
-          value={inputValue} 
-          onChange={handleInputChange}
-        />
+          <TextField 
+            required
+            id="outlined-required"
+            label="Type Your email"
+            defaultValue="Hello World"
+            value={inputValue}
+            onChange={handleInputChange}
+            style={{
+              width:400,
+              borderColor: "rgb(21, 166, 9)",
+             }}
+            />
         <br/>
-    <Button variant="contained" onClick={handleClick}>Submit</Button>
-    <AddRemoveInputField />
+    <Button
+          style={{
+            borderRadius: 5,
+            backgroundColor: "rgb(21, 166, 9)",
+            fontSize: "18px"
+        }}
+          disabled={!inputValue } variant="contained" onClick={handleClick}>Submit</Button>
     </div>
   );
 }
