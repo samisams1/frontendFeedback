@@ -16,7 +16,7 @@ export default class FeedbackList extends Component<Props, State>{
   constructor(props: Props) {
     super(props);
     this.onChangeSearchTitle = this.onChangeSearchTitle.bind(this);
-    this.retrieveTutorials = this.retrieveTutorials.bind(this);
+    this.retrieveFeedback = this.retrieveFeedback.bind(this);
     this.refreshList = this.refreshList.bind(this);
     this.setActiveTutorial = this.setActiveTutorial.bind(this);
     this.removeAllTutorials = this.removeAllTutorials.bind(this);
@@ -31,7 +31,7 @@ export default class FeedbackList extends Component<Props, State>{
   }
 
   componentDidMount() {
-    this.retrieveTutorials();
+    this.retrieveFeedback();
   }
 
   onChangeSearchTitle(e: ChangeEvent<HTMLInputElement>) {
@@ -42,7 +42,7 @@ export default class FeedbackList extends Component<Props, State>{
     });
   }
 
-  retrieveTutorials() {
+  retrieveFeedback() {
     feedbackService.getAll()
       .then((response: any) => {
         this.setState({
@@ -56,7 +56,7 @@ export default class FeedbackList extends Component<Props, State>{
   }
 
   refreshList() {
-    this.retrieveTutorials();
+    this.retrieveFeedback();
     this.setState({
       currentTutorial: null,
       currentIndex: -1
