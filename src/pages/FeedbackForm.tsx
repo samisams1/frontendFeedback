@@ -72,7 +72,6 @@ export default class CreateFeedback extends Component<Props, State> {
 
   render() {
     const { submitted, title, content } = this.state;
-    const isAnonymous = true;
     return (
       <div className="submit-form">
         {submitted ? (
@@ -92,7 +91,6 @@ export default class CreateFeedback extends Component<Props, State> {
             label="How are you feeling after the session today"
             multiline
             rows={2}
-            defaultValue="Hello World"
             value={title}
             onChange={this.onChangeTitle}
             style={{
