@@ -65,7 +65,7 @@ export default class FeedbackList extends Component<Props, State>{
 
 
   render() {
-    const { searchTitle, feedbacks, currentFeedback, currentIndex } = this.state;
+    const { feedbacks } = this.state;
 
     return (
       <div className="list row">
