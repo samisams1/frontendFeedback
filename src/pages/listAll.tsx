@@ -8,22 +8,18 @@ type Props = {};
 type State = {
   feedbacks: Array<feedbackData>,
   currentFeedback: feedbackData | null,
-  currentIndex: number,
-  searchTitle: string
+ 
 };
 
 export default class FeedbackList extends Component<Props, State>{
   constructor(props: Props) {
     super(props);
     this.retrieveFeedback = this.retrieveFeedback.bind(this);
-    this.refreshList = this.refreshList.bind(this);
     this.setActiveFeedback = this.setActiveFeedback.bind(this);
 
     this.state = {
       feedbacks: [],
       currentFeedback: null,
-      currentIndex: -1,
-      searchTitle: ""
     };
   }
 
@@ -46,18 +42,11 @@ export default class FeedbackList extends Component<Props, State>{
       });
   }
 
-  refreshList() {
-    this.retrieveFeedback();
-    this.setState({
-      currentFeedback: null,
-      currentIndex: -1
-    });
-  }
+  
 
   setActiveFeedback(feedback: feedbackData, index: number) {
     this.setState({
       currentFeedback: feedback,
-      currentIndex: index
     });
   }
 

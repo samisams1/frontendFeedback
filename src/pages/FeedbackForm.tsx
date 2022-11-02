@@ -53,10 +53,9 @@ export default class CreateFeedback extends Component<Props, State> {
           content: response.data.content,
            userId: response.data.userId
         });
-        console.log(data);
-        console.log('kebede');
         console.log(response.data);
         alert("Success")
+       
       })
       .catch((e: Error) => {
         console.log(e);
