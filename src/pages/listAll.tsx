@@ -1,5 +1,5 @@
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
-import { Component, ChangeEvent } from "react";
+import { Component } from "react";
 import feedbackService from "../services/feedback.service";
 import feedbackData from "../types/feedback.type";
 
