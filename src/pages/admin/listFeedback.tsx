@@ -1,8 +1,6 @@
 import { Component, ChangeEvent } from "react";
-import FeedbackDataService from "../../services/feedback.service";
 import feedbackData from "../../types/feedback.type";
-import axios, { AxiosResponse } from 'axios';
-import TutorialsList from "../listAll";
+import FeedbackList from "../listAll";
 type Props = {};
 
 type State = feedbackData & {
@@ -43,7 +41,7 @@ export default class ListFeedback extends Component<Props, State> {
 
     return (
       <div className="submit-form">
-        <TutorialsList />
+        <FeedbackList />
       </div>
     );
   }

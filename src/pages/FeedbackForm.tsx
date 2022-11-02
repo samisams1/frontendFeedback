@@ -37,7 +37,7 @@ export default class CreateFeedback extends Component<Props, State> {
 
  
 
-  saveFeedback() {
+  saveFeedback(event:any) {
     const data: feedbackData = {
       title: this.state.title,
       content: this.state.content,
@@ -55,7 +55,6 @@ export default class CreateFeedback extends Component<Props, State> {
         });
         console.log(response.data);
         alert("Success")
-       
       })
       .catch((e: Error) => {
         console.log(e);
