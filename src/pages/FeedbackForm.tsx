@@ -1,15 +1,14 @@
 import { Component, ChangeEvent } from "react";
 import FeedbackDataService from "../services/feedback.service";
 import feedbackData from "../types/feedback.type";
-import axios, { AxiosResponse } from 'axios';
-import { Button, TextField, Typography } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 type Props = {};
 
 type State = feedbackData & {
   submitted: boolean
 };
 
-export default class AddTutorial extends Component<Props, State> {
+export default class CreateFeedback extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.onChangeTitle = this.onChangeTitle.bind(this);
@@ -64,7 +63,7 @@ export default class AddTutorial extends Component<Props, State> {
       });
   }
 
-  newTutorial() {
+  newForm() {
     this.setState({
       title: "",
       content: "",
@@ -80,7 +79,7 @@ export default class AddTutorial extends Component<Props, State> {
         {submitted ? (
           <div>
             <h4>You submitted successfully!</h4>
-            <button className="btn btn-success" onClick={this.newTutorial}>
+            <button className="btn btn-success" onClick={this.newForm}>
               Add
             </button>
           </div>
@@ -92,7 +91,6 @@ export default class AddTutorial extends Component<Props, State> {
             required
             id="outlined-required"
             label="How are you feeling after the session today"
-            helperText="type"
             multiline
             rows={2}
             defaultValue="Hello World"
@@ -109,7 +107,6 @@ export default class AddTutorial extends Component<Props, State> {
 required
 id="outlined-required"
 label="any topics"
-defaultValue="Hello World"
 multiline
 rows={2}
 value={content}

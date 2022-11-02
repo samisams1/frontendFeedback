@@ -25,7 +25,6 @@ export default function Home() {
             required
             id="outlined-required"
             label="Type Your email"
-            defaultValue="Hello World"
             value={inputValue}
             onChange={handleInputChange}
             style={{
