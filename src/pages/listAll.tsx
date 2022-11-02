@@ -6,8 +6,8 @@ import feedbackData from "../types/feedback.type";
 type Props = {};
 
 type State = {
-  tutorials: Array<feedbackData>,
-  currentTutorial: feedbackData | null,
+  feedbacks: Array<feedbackData>,
+  currentFeedback: feedbackData | null,
   currentIndex: number,
   searchTitle: string
 };
@@ -15,16 +15,13 @@ type State = {
 export default class FeedbackList extends Component<Props, State>{
   constructor(props: Props) {
     super(props);
-    this.onChangeSearchTitle = this.onChangeSearchTitle.bind(this);
     this.retrieveFeedback = this.retrieveFeedback.bind(this);
     this.refreshList = this.refreshList.bind(this);
-    this.setActiveTutorial = this.setActiveTutorial.bind(this);
-    this.removeAllTutorials = this.removeAllTutorials.bind(this);
-    this.searchTitle = this.searchTitle.bind(this);
+    this.setActiveFeedback = this.setActiveFeedback.bind(this);
 
     this.state = {
-      tutorials: [],
-      currentTutorial: null,
+      feedbacks: [],
+      currentFeedback: null,
       currentIndex: -1,
       searchTitle: ""
     };
@@ -34,19 +31,13 @@ export default class FeedbackList extends Component<Props, State>{
     this.retrieveFeedback();
   }
 
-  onChangeSearchTitle(e: ChangeEvent<HTMLInputElement>) {
-    const searchTitle = e.target.value;
 
-    this.setState({
-      searchTitle: searchTitle
-    });
-  }
 
   retrieveFeedback() {
     feedbackService.getAll()
       .then((response: any) => {
         this.setState({
-          tutorials: response.data
+          feedbacks: response.data
         });
         console.log(response.data);
       })
@@ -58,49 +49,23 @@ export default class FeedbackList extends Component<Props, State>{
   refreshList() {
     this.retrieveFeedback();
     this.setState({
-      currentTutorial: null,
+      currentFeedback: null,
       currentIndex: -1
     });
   }
 
-  setActiveTutorial(tutorial: feedbackData, index: number) {
+  setActiveFeedback(feedback: feedbackData, index: number) {
     this.setState({
-      currentTutorial: tutorial,
+      currentFeedback: feedback,
       currentIndex: index
     });
   }
 
-  removeAllTutorials() {
-    feedbackService.deleteAll()
-      .then((response: any) => {
-        console.log(response.data);
-        this.refreshList();
-      })
-      .catch((e: Error) => {
-        console.log(e);
-      });
-  }
 
-  searchTitle() {
-    this.setState({
-      currentTutorial: null,
-      currentIndex: -1
-    });
 
-    feedbackService.findByTitle(this.state.searchTitle)
-      .then((response: any) => {
-        this.setState({
-          tutorials: response.data
-        });
-        console.log(response.data);
-      })
-      .catch((e: Error) => {
-        console.log(e);
-      });
-  }
 
   render() {
-    const { searchTitle, tutorials, currentTutorial, currentIndex } = this.state;
+    const { searchTitle, feedbacks, currentFeedback, currentIndex } = this.state;
 
     return (
       <div className="list row">
@@ -117,7 +82,7 @@ export default class FeedbackList extends Component<Props, State>{
           </TableRow>
         </TableHead>
         <TableBody>
-          {tutorials.map((row) => (
+          {feedbacks.map((row) => (
             <TableRow
               key={row.title}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
