@@ -1,6 +1,6 @@
-import Button from "./Button";
+import Buttonc from "./Button";
 const Controls = {
-    Button,
+    Buttonc,
 }
 
 export default Controls;

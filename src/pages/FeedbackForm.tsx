@@ -1,7 +1,9 @@
 import { Component, ChangeEvent } from "react";
 import FeedbackDataService from "../services/feedback.service";
 import feedbackData from "../types/feedback.type";
-import { Button, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
+import Button from "../ components/controls/Button";
+import Form from "../ components/controls/useForm";
 type Props = {};
 
 type State = feedbackData & {
@@ -96,6 +98,7 @@ export default class CreateFeedback extends Component<Props, State> {
               width:400
              }}
             />
+          
 </div>
 <div>
   <h4>Are there any topics you would like covered next week? </h4>
@@ -113,12 +116,8 @@ style={{
 />
 </div>
           <Button
-          style={{
-            borderRadius: 5,
-            backgroundColor: "rgb(21, 166, 9)",
-            fontSize: "18px"
-        }}
-          disabled={!title || !content} variant="contained" onClick={this.saveFeedback}>Submit</Button>
+     text={"Submit"}
+          disabled={!title || !content} variant="contained" onClick={this.saveFeedback}></Button>
           </div>
         )}
       </div>

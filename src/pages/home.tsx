@@ -1,6 +1,7 @@
-import { Button, TextField } from '@mui/material';
 import { useState, MouseEvent } from 'react';
 import { useNavigate } from "react-router-dom";
+import Buttonc from '../ components/controls/Button';
+import Form from '../ components/controls/useForm';
 export default function Home() {
   const [inputValue, setInputValue] = useState('');
 
@@ -21,25 +22,17 @@ export default function Home() {
   return (
     <div className="App">
       <h1>What is Your email address ? </h1>
-          <TextField 
-            required
-            id="outlined-required"
-            label="Type Your email"
-            value={inputValue}
-            onChange={handleInputChange}
-            style={{
-              width:400,
-              borderColor: "rgb(21, 166, 9)",
-             }}
+          <Form
+          value={inputValue}
+          handleInputChange={handleInputChange}
             />
         <br/>
-    <Button
-          style={{
-            borderRadius: 5,
-            backgroundColor: "rgb(21, 166, 9)",
-            fontSize: "18px"
-        }}
-          disabled={!inputValue } variant="contained" onClick={handleClick}>Submit</Button>
+          <Buttonc
+           disabled={!inputValue } variant="contained"
+          text={"Submit"}
+          onClick={handleClick}
+          >
+          </Buttonc>
     </div>
   );
 }

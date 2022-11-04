@@ -34,10 +34,7 @@ export default class ListFeedback extends Component<Props, State> {
     });
   }
 
-
-
   render() {
-    const { submitted, title, content } = this.state;
 
     return (
       <div className="submit-form">

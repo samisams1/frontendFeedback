@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button as MuiButton, makeStyles } from "@mui/material";
+import { Button as MuiButton } from "@mui/material";
 
 
 export default function Button(props:any) {
@@ -9,9 +9,14 @@ export default function Button(props:any) {
 
     return (
         <MuiButton
+        style={{
+            borderRadius: 5,
+            backgroundColor: "rgb(21, 166, 9)",
+            fontSize: "18px"
+        }}
+        
             variant={variant || "contained"}
             size={size || "large"}
-            color={color || "primary"}
             onClick={onClick}
             {...other}
            >

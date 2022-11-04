@@ -46,7 +46,6 @@ function AddRemoveInputField(){
                 
                  {(inputFields.length!==1)? <button className="btn btn-outline-danger" onClick={removeInputFields}>x</button>:''}
                   
-                 
                     </div>
                   </div>
                           )
