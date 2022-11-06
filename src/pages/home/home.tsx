@@ -1,7 +1,7 @@
 import { useState, MouseEvent } from 'react';
 import { useNavigate } from "react-router-dom";
-import Buttonc from '../ components/controls/Button';
-import Form from '../ components/controls/useForm';
+import Buttonc from '../../ components/controls/Button';
+import Form from '../../ components/controls/useForm';
 export default function Home() {
   const [inputValue, setInputValue] = useState('');
 

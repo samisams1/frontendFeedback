@@ -12,7 +12,7 @@ class FeedbackDataService {
     return http.get<feedbackData>(`/feedbacks/${id}`);
   }
   create(data:feedbackData) {
-   return axios.post<feedbackData>('http://localhost:9090/feedbacks',data);
+    return axios.post<feedbackData>('http://localhost:9090/feedbacks',data);
  };
   update(data: feedbackData, id: any) {
     return http.put<any>(`/feedbacks/${id}`, data);

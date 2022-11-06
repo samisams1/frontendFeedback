@@ -1,7 +1,7 @@
 import { useState, MouseEvent } from 'react';
 import { useNavigate } from "react-router-dom";
 
-export default function App() {
+export default function FeeedbackForm() {
   const [inputValue, setInputValue] = useState('');
 
   let navigate = useNavigate(); 
