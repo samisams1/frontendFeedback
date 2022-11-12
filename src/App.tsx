@@ -6,9 +6,9 @@ import Home from "./pages/home/home";
 import FeedbackForm from "./pages/feedback/components/FeedbackForm";
 import { ThemeProvider } from "./ components/ThemeProvider";
 import { Container, CssBaseline } from "@mui/material";
-//import ListFeedback from "./pages/feedback/components/listFeedback";
-
 import  Feedback  from "./pages/feedback";
+import TutorialsList from "./pages/feedback/components/TutorialsList";
+import { Employee } from "./pages/Employee";
 
   
 function App() {
@@ -21,6 +21,8 @@ function App() {
       <Route path="/" element={<Home />}/>
         <Route path="/feedback" element={<FeedbackForm />}/>
         <Route path="/viewFeedback" element={<Feedback.ListFeedback/>}/>
+        <Route path="/sasaw" element={<TutorialsList/>}/>
+        <Route path="/gashe" element={<Employee/>}/>
       </Routes>  
       </Container>
       </CssBaseline>
